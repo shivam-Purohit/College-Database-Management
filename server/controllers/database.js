@@ -10,12 +10,23 @@ const pool = mysql.createPool({
 
 
 async function showUsersData(){
-    const result = await pool.query(`select role from users where users.email = "bt21cse@iiitn.ac.in"`);
-    // console.log(result);
+    const result = await pool.query(`select * from users`);
     return result[0];
 }   
 async function showUserRole(email){
     const result = await pool.query(`select role from users where users.email = ?`, [email]);
     return result[0];
 }
-module.exports= {showUsersData, showUserRole};
+async function createUser(email, password ,role){
+    try{
+        const result = await pool.query(`insert into users (email, password, role) values (?, ?, ?)`,[email, password, role])
+        console.log(!result.sqlMessage);
+        return "user was created";
+    }
+    catch(e){
+        const sqlerror = e.sqlMessage;
+        console.log(sqlerror);
+        return sqlerror;
+    }
+}
+module.exports= {showUsersData, showUserRole, createUser};

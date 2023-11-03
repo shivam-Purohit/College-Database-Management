@@ -44,10 +44,6 @@ const Home = () => {
     color: '#333',
   };
 
-  const handleLogin = (userType) => {
-    // Perform actions based on the user type (e.g., redirect to login page)
-    console.log(`Logging in as ${userType}`);
-  };
   const navigate = useNavigate();
 
   const navigateToContacts = () => {
@@ -61,10 +57,10 @@ const Home = () => {
         <button style={adminButtonStyle} onClick={navigateToContacts}>
           Admin
         </button>
-        <button style={teacherButtonStyle} onClick={() => handleLogin('teacher')}>
+        <button style={teacherButtonStyle} onClick={navigateToContacts}>
           Teacher
         </button>
-        <button style={studentButtonStyle} onClick={() => handleLogin('student')}>
+        <button style={studentButtonStyle} onClick={navigateToContacts}>
           Student
         </button>
       </div>

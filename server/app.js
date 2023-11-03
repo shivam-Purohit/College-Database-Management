@@ -1,5 +1,5 @@
 const express = require('express')
-const {showUsersData, showUserRole} = require('./controllers/database')
+const {showUsersData, showUserRole, createUser} = require('./controllers/database')
 const app  = express();
 const PORT = 8000;
 const page_routes = require('./routes/page')
@@ -36,4 +36,16 @@ app.post('/getuserrole', async(req, res)=>{
     // // console.log(role);
     // // res.json({"role":`${role}`})
     res.send(role)
+})
+
+app.post('/createuser', async(req, res)=>{
+    // console.log(req.body)
+    const email = req.body.userEmail;
+    const password = req.body.userPassword;
+    const role = req.body.userRole;
+    const userdata = await createUser(email, password, role);
+    // const role = userdata[0].role
+    // // console.log(role);
+    // // res.json({"role":`${role}`})
+    res.json({"msg":`${userdata}`})
 })
