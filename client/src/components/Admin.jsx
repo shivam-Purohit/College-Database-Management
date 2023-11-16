@@ -97,6 +97,11 @@ export const Admin = () => {
         padding: '20px',
         borderRadius: '8px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+        background: `url('https://iiitn.ac.in/images/album/independence-day2023//6.jpg') center/cover`, // Replace 'your-background-image.jpg' with your image URL
+        color : 'white',
+        // fontWeight: 'bold',
+        // textShadow: '2px 2px 4px rgba(0, 0, 0, 2.5)',
+        // fontSize : '25px'
       }}
     >
       {/* Add User Button */}

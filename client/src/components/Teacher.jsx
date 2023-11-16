@@ -77,7 +77,12 @@ function Teacher() {
       backgroundColor: '#f0f0f0',
       padding: '20px',
       borderRadius: '8px',
-      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
+      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+      background: `url('https://iiitn.ac.in/images/album/upcoming-campus-photo//16.jpeg') center/cover`, // Replace 'your-background-image.jpg' with your image URL
+      color : 'white',
+      // fontWeight: 'bold',
+      // textShadow: '2px 2px 4px rgba(0, 0, 0, 2.5)',
+      // fontSize : '25px'
     }}>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
         <Button variant="primary" onClick={handleUpdateClick}>

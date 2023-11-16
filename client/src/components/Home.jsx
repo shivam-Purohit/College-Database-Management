@@ -5,6 +5,15 @@ import axios from 'axios';
 import iiitnImage from '../components/Indian_Institute_of_Information_Technology,_Nagpur_Logo.jpg';
 
 const Home = () => {
+
+  const mainStyle = {
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    background: `url('https://iiitn.ac.in/images/album/upcoming-campus-photo//16.jpeg') center/cover`, // Replace 'your-background-image.jpg' with your image URL
+    color : 'white',
+    // fontWeight: 'bold',
+    // textShadow: '2px 2px 4px rgba(0, 0, 0, 2.5)',
+    // fontSize : '25px'
+  }
   const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -14,10 +23,10 @@ const Home = () => {
     marginTop: '12em',
     borderRadius: '10px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    backgroundColor: '#fff',
     width: '80%',
     maxWidth: '600px',
-    margin: '50px auto',
+    margin: 'auto',
+    
   };
 
   const titleStyle = {
@@ -79,6 +88,8 @@ const Home = () => {
     marginRight: '20px', // Adjust the margin as needed
     height: '150px', // Adjust the height as needed
   };
+
+
   const rightStyle = {
 // Adjust the margin as needed
     width : '20em',
@@ -117,7 +128,7 @@ const Home = () => {
   }, []); // The empty dependency array ensures this effect runs once when the component mounts
 
   return (
-    <div id="main-page">
+    <div id="main-page" style={mainStyle}>
       <div style={containerStyle}>
         <h1 style={titleStyle}>Welcome to the College Management System</h1>
         <div style={buttonContainerStyle}>
