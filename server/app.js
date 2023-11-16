@@ -1,5 +1,5 @@
 const express = require('express')
-const {showUsersData, showUserRole, createUser, updateMarks, GetAllMarks, AddAnnouncement, GetAnnouncement, GetResult, GetAttendence, GetFaculty} = require('./controllers/database')
+const {showUsersData, showUserRole, createUser, updateMarks, GetAllMarks, AddAnnouncement, GetAnnouncement, GetResult, GetAttendence, GetFaculty, DeleteUser, DeleteAnnouncement} = require('./controllers/database')
 const app  = express();
 const PORT = 8000;
 const page_routes = require('./routes/page')
@@ -93,4 +93,17 @@ app.get('/getfaculty', async (req, res)=>{
     const result = await GetFaculty();
     console.log("result is :", result);
     res.send(result)
+});
+
+app.delete('/deleteuser', async (req, res)=>{
+    const userEmail = req.body.userEmail;
+    const result = await DeleteUser(userEmail);
+    console.log("result is :", result);
+    res.json({'msg':`User deleted with email ${userEmail}`})
+});
+app.delete('/deleteannouncement', async (req, res)=>{
+    const announcementId = req.body.announcementId;
+    const result = await DeleteAnnouncement(announcementId);
+    console.log("result is :", result);
+    res.json({'msg':`Announcement deleted with id ${announcementId}`})
 });

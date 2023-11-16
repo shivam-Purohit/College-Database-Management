@@ -199,4 +199,43 @@ async function AddAnnouncement(announcementHeading, announcementText) {
     }
   };
 
-module.exports= {showUsersData, showUserRole, createUser, updateMarks, GetAllMarks, AddAnnouncement, GetAnnouncement, GetResult, GetAttendence, GetFaculty};
+  async function DeleteUser(userEmail) {
+    try {
+      console.log("useremail is:",userEmail)
+      // Update the marks in the database
+      const [result] = await pool.query(
+        `DELETE FROM users
+        WHERE email = ?;`,
+        [userEmail]
+        
+      );
+      console.log("result in db :", result);
+      return result;
+    }   
+    catch(e){
+        const sqlerror = e.sqlMessage;
+        console.log(sqlerror);
+        return sqlerror;
+    }
+  };
+  async function DeleteAnnouncement(announcementId) {
+    try {
+      console.log("announcementid is:",announcementId)
+      // Update the marks in the database
+      const [result] = await pool.query(
+        `DELETE FROM announcement
+        WHERE AnnouncementID  = ?;`,
+        [announcementId]
+        
+      );
+      console.log("result in db :", result);
+      return result;
+    }   
+    catch(e){
+        const sqlerror = e.sqlMessage;
+        console.log(sqlerror);
+        return sqlerror;
+    }
+  };
+
+module.exports= {showUsersData, showUserRole, createUser, updateMarks, GetAllMarks, AddAnnouncement, GetAnnouncement, GetResult, GetAttendence, GetFaculty, DeleteUser, DeleteAnnouncement};
