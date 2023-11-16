@@ -28,9 +28,10 @@ function Login() {
         })
         // console.log(result.data);
         if(result.data === "student"){
-          navigate("/student")
+          console.log(email);
+          navigate("/student", { state: { userEmail: email } });
         }
-        if(result.data === "teacher"){
+        if(result.data === "teacher"){  
           navigate("/teacher")
         }
         if(result.data === "admin"){

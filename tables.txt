@@ -1,0 +1,74 @@
+-- Create Department Table
+CREATE TABLE Department (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(255) NOT NULL,
+    HeadID INT,
+    FOREIGN KEY (HeadID) REFERENCES Head(HeadID)
+);
+
+-- Create Course Table
+CREATE TABLE Course (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(255) NOT NULL,
+    DepartmentID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID)
+);
+
+-- Create Instructor Table
+CREATE TABLE Instructor (
+    InstructorID INT PRIMARY KEY,
+    InstructorName VARCHAR(255) NOT NULL,
+    DepartmentID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID)
+);
+
+-- Create Student Table
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(255) NOT NULL
+);
+
+-- Create Head Table
+CREATE TABLE Head (
+    HeadID INT PRIMARY KEY,
+    DepartmentID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID)
+);
+
+-- Create Exam Table
+CREATE TABLE Exam (
+    ExamID INT PRIMARY KEY,
+    CourseID INT,
+    Date DATE,
+    Time TIME,
+    InstructorID INT,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID),
+    FOREIGN KEY (InstructorID) REFERENCES Instructor(InstructorID)
+);
+
+-- Create Subject Table
+CREATE TABLE Subject (
+    SubjectID INT PRIMARY KEY,
+    SubjectName VARCHAR(255) NOT NULL
+);
+
+-- Create Marks Table
+CREATE TABLE Marks (
+    MarksID INT PRIMARY KEY,
+    StudentID INT,
+    ExamID INT,
+    TotalScore INT,
+    Grade VARCHAR(10),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (ExamID) REFERENCES Exam(ExamID)
+);
+
+-- Create Marks_Subject Table for the many-to-many relationship
+CREATE TABLE Marks_Subject (
+    MarksID INT,
+    SubjectID INT,
+    PRIMARY KEY (MarksID, SubjectID),
+    FOREIGN KEY (MarksID) REFERENCES Marks(MarksID),
+    FOREIGN KEY (SubjectID) REFERENCES Subject(SubjectID)
+);
+

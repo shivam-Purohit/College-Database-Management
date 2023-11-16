@@ -6,6 +6,7 @@ import Student from "./components/Student"
 import Admin from "./components/Admin"
 import ReactNavbar from './components/Navbar';
 import Login from './components/Login';
+import FacultyPage from "./components/Faculty";
 // import {Home} from "./components/Home";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/student" element={<Student/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/faculty" element={<FacultyPage/>} />
       </Routes>
     </BrowserRouter>
     </div>

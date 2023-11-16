@@ -13,8 +13,9 @@ function ReactNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#link">Exam Schedule</Nav.Link>
-            <Nav.Link href="#link">Results</Nav.Link>
+            <Nav.Link href="#announcement">Announcement</Nav.Link>
+            <Nav.Link href="#footer">Contact</Nav.Link>
+            <Nav.Link href="/faculty">Faculty</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
